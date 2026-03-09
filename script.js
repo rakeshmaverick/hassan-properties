@@ -1,5 +1,4 @@
-document.querySelectorAll(".slider").forEach(slider => {
-
+document.querySelectorAll(".slider").forEach((slider) => {
   const slides = slider.querySelector(".slides");
   const images = slider.querySelectorAll("img");
   const prev = slider.querySelector(".prev");
@@ -26,7 +25,7 @@ document.querySelectorAll(".slider").forEach(slider => {
 
   function updateSlide() {
     slides.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach(dot => dot.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
     dots[index].classList.add("active");
   }
 
@@ -43,11 +42,11 @@ document.querySelectorAll(".slider").forEach(slider => {
   // Touch Swipe
   let startX = 0;
 
-  slider.addEventListener("touchstart", e => {
+  slider.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
   });
 
-  slider.addEventListener("touchend", e => {
+  slider.addEventListener("touchend", (e) => {
     let endX = e.changedTouches[0].clientX;
 
     if (startX - endX > 50) {
@@ -58,47 +57,67 @@ document.querySelectorAll(".slider").forEach(slider => {
 
     updateSlide();
   });
-
 });
 
-
 // MOBILE MENU
-document.querySelector(".menu-toggle")
-.addEventListener("click",()=>{
+document.querySelector(".menu-toggle").addEventListener("click", () => {
   document.querySelector(".nav").classList.toggle("active");
 });
 
 // FILTER FUNCTION
-function filterProperties(){
+function filterProperties() {
+  const searchValue = document.getElementById("searchInput").value.trim();
 
-  const searchValue =
-  document.getElementById("searchInput").value.trim();
+  const typeValue = document.getElementById("typeFilter").value;
 
-  const typeValue =
-  document.getElementById("typeFilter").value;
-
-  document.querySelectorAll(".card").forEach(card=>{
-
+  document.querySelectorAll(".card").forEach((card) => {
     const id = card.getAttribute("data-id");
     const type = card.getAttribute("data-type");
 
     const matchId = id.includes(searchValue);
     const matchType = typeValue === "all" || type === typeValue;
 
-    if(matchId && matchType){
-      card.style.display="block";
-    } else{
-      card.style.display="none";
+    if (matchId && matchType) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
-
   });
 }
 
 // RESET
-function resetFilters(){
-  document.getElementById("searchInput").value="";
-  document.getElementById("typeFilter").value="all";
-  document.querySelectorAll(".card").forEach(card=>{
-    card.style.display="block";
+function resetFilters() {
+  document.getElementById("searchInput").value = "";
+  document.getElementById("typeFilter").value = "all";
+  document.querySelectorAll(".card").forEach((card) => {
+    card.style.display = "block";
   });
 }
+
+// Filter category
+function filterCategory(category) {
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach((card) => {
+    const cardCategory = card.getAttribute("data-category");
+
+    if (category === "all" || cardCategory === category) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+//Toggle menu
+function toggleMenu() {
+  const nav = document.getElementById("navMenu");
+
+  nav.classList.toggle("active");
+}
+
+document.querySelectorAll("#navMenu a").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.getElementById("navMenu").classList.remove("active");
+  });
+});
