@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ಹಾಸನದಲ್ಲೊಂದು ಆಸ್ತಿ</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <div class="logo">ಹಾಸನದಲ್ಲೊಂದು ಆಸ್ತಿ</div>
+
+  <nav class="nav">
+    <a href="#home">Home</a>
+    <a href="#properties">Properties</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button class="menu-toggle">☰</button>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Find Your Dream Property</h1>
+  <p>Trusted Real Estate Partner</p>
+</section>
+
+<!-- SEARCH + FILTER -->
+<section class="filter-section">
+
+  <input type="text" id="searchInput" placeholder="Search Property Number">
+
+  <select id="typeFilter">
+    <option value="all">All Types</option>
+    <option value="villa">Villa</option>
+    <option value="apartment">Apartment</option>
+    <option value="plot">Plot</option>
+  </select>
+
+  <button onclick="filterProperties()">Search</button>
+  <button onclick="resetFilters()">Reset</button>
+
+</section>
+
+<section id="properties" class="properties">
+  <h2>Featured Properties</h2>
+
+  <div class="property-grid">
+
+    <!-- VILLA -->
+    <div class="card" data-id="101" data-type="villa">
+      <div class="slider">
+        <div class="slides">
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" />
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" />
+        </div>
+
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="dots"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>Luxury Villa</h3>
+        <p>₹75 Lakhs · 2400 sqft</p>
+        <button class="btn">View Details</button>
+      </div>
+    </div>
+
+    <!-- APARTMENT -->
+    <div class="card" data-id="102" data-type="apartment">
+      <div class="slider">
+        <div class="slides">
+          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" />
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" />
+          <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6" />
+        </div>
+
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="dots"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>Modern Apartment</h3>
+        <p>₹45 Lakhs · 1500 sqft</p>
+        <button class="btn">View Details</button>
+      </div>
+    </div>
+
+    <div class="card" data-id="105" data-type="apartment">
+      <div class="slider">
+        <div class="slides">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" />
+          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" />
+          <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6" />
+        </div>
+
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="dots"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>Modern Apartment</h3>
+        <p>₹43 Lakhs · 1200 sqft</p>
+        <button class="btn">View Details</button>
+      </div>
+    </div>
+
+     <!-- PLOT -->
+     <div class="card" data-id="103" data-type="plot">
+      <div class="slider">
+        <div class="slides">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" />
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" />
+        </div>
+
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="dots"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>Luxury Villa</h3>
+        <p>₹75 Lakhs · 2400 sqft</p>
+        <button class="btn">View Details</button>
+      </div>
+    </div>
+
+    <div class="card" data-id="104" data-type="plot">
+      <div class="slider">
+        <div class="slides">
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" />
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" />
+        </div>
+
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="dots"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>Luxury Villa</h3>
+        <p>₹65 Lakhs · 2100 sqft</p>
+        <button class="btn">View Details</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="info">
+  <h2>About Us</h2>
+  <p>We provide trusted and verified real estate services helping clients find the perfect home or investment property.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="info">
+  <h2>Contact Us</h2>
+  <p>📞 +91 9876543210</p>
+  <p>📧 ಹಾಸನದಲ್ಲೊಂದು ಆಸ್ತಿ@gmail.com</p>
+</section>
+
+</body>
+</html>
