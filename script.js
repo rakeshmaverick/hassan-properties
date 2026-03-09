@@ -121,3 +121,10 @@ document.querySelectorAll("#navMenu a").forEach((link) => {
     document.getElementById("navMenu").classList.remove("active");
   });
 });
+
+
+fetch("privacy-policy.html")
+.then(res => res.text())
+.then(data => {
+document.getElementById("privacy-container").innerHTML = data;
+});
